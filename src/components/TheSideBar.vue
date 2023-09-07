@@ -6,13 +6,14 @@
         <div class="dashboard-nav-inner">
             <ul data-submenu-title="Main">
                 <li class="active">
-                    <router-link to="/">
+                    <router-link to="/dashboard">
                         <i class="sl sl-icon-settings"></i> Dashboard
                     </router-link>
                 </li>
                 <li>
                     <router-link to="/booking">
-                        <i class="fa fa-calendar-check-o"></i> Bookings<span class="nav-tag messages">2</span>
+                        <i class="fa fa-calendar-check-o"></i> Bookings
+                        <span class="nav-tag messages">{{ listTicket.length }}</span>
                     </router-link>
                 </li>
                 <li><a href="dashboard-wallet.html"><i class="sl sl-icon-wallet"></i> Wallet</a></li>
@@ -41,8 +42,18 @@
 </template>
 
 <script>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
 export default {
+    setup() {
+        const store = useStore();
+        store.dispatch("ticket/getAllTicketAction");
+        const listTicket = computed(() => store.state.ticket.listTicket);
 
+        return {
+            listTicket
+        }
+    }
 }
 </script>
 
