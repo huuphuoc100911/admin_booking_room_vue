@@ -5,10 +5,16 @@
     <div class="dashboard-nav">
         <div class="dashboard-nav-inner">
             <ul data-submenu-title="Main">
-                <li class="active"><a href="dashboard.html"><i class="sl sl-icon-settings"></i> Dashboard</a></li>
-                <li><a href="dashboard-messages.html"><i class="sl sl-icon-envelope-open"></i> Messages <span
-                            class="nav-tag messages">2</span></a></li>
-                <li><a href="dashboard-bookings.html"><i class="fa fa-calendar-check-o"></i> Bookings</a></li>
+                <li class="active">
+                    <router-link to="/">
+                        <i class="sl sl-icon-settings"></i> Dashboard
+                    </router-link>
+                </li>
+                <li>
+                    <router-link to="/booking">
+                        <i class="fa fa-calendar-check-o"></i> Bookings<span class="nav-tag messages">2</span>
+                    </router-link>
+                </li>
                 <li><a href="dashboard-wallet.html"><i class="sl sl-icon-wallet"></i> Wallet</a></li>
             </ul>
 
